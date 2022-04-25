@@ -1,0 +1,137 @@
+<link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
+      rel="stylesheet"
+    />
+
+<header>
+        <div class="nav">
+            <img class="nav-icon" src="https://i.postimg.cc/SRh4FjcQ/Icon-awesome-bars.png" alt="nav-icon">
+            <input class="bar" type="text" placeholder="Search">
+            <img class="notification-icon" src="https://i.postimg.cc/2y7DzmxQ/Icon-ionic-ios-notifications.png" alt="notification-icon">
+            {{!-- <img class="save-icon" src="/images/profile/{{user.img}}" alt="save-icon"> --}}
+          <a href="/home"><h1>{{user.name}}</h1></a>
+        
+       
+            <img class="profile" src="/images/profile/{{user.img}}">
+        </div>
+       <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Add profile pic
+</button>
+<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+            Add Note
+</button>
+{{!-- <a href="/message" class="btn btn-dark">message</a> --}}
+<a href="http://localhost:5000/"  target="blank" class="btn btn-dark">Meet</a>
+{{!-- <a href="/notification" class="btn btn-dark">notification</a> --}}
+<a href="/logout"  class="btn btn-dark">LogOut</a>
+    </header>
+
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form action="/addimg" method="post" enctype="multipart/form-data">
+          <input type="file" name="img" >
+          <input type="hidden" name="userID" value="{{user.id }}">
+          <input type="submit" value="Update">
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{{!-- //addpost --}}
+
+
+<div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form action="/addpost" method="post" enctype="multipart/form-data">
+          <input type="file" name="img">
+          <input type="hidden" name="userID" value="{{user.id }}">
+          <label for="">discription</label>
+          <input type="text" name="dis" placeholder="discription">
+          <input type="submit" value="Update">
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{{!-- message --}}
+
+
+
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+             <div class="column-two">
+        
+        {{!-- <div class="booking-box">
+            <img src="https://i.postimg.cc/gJpsHR84/slawek-fedorczuk-slawek-fedorczuk-2016-11-11-1.jpg" alt="">
+            <h3>Four Seasons</h3>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+            <input class="button" type="button" value="Book">
+        </div> --}}
+
+        
+    </div>
+
+    </main>
+
+    <aside class="aside-content">
+        
+        <div class="aside-title">
+         <h3>Message</h3>
+         <a href="#">View all</a>
+        </div>
+        {{#each post}}
+         <div class="aside-booking-box">
+                <div class="photo">
+                    <img src="/images/msg/{{this.img}}" alt="">
+                </div>
+                <div class="info">
+                    <h4>{{this.msg}}</h4>
+                    
+                </div>
+         </div>
+        {{/each}}
+
+    </aside>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>

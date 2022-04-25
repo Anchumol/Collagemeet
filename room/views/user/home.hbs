@@ -1,0 +1,129 @@
+{{>userNav}}
+
+    <section>
+        <h1>{{user.email}}</h1>
+        
+    </section>
+
+    <div class="content">
+
+    <main class="main-content">
+            {{#each data}}
+     <div class="column-two">
+
+        <div class="booking-box">
+            <img src="/images/profile/{{this.img}}">
+            <h3>{{this.name}}</h3>
+            <p>{{this.email}}</p>
+          
+{{!-- <a href="/" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">message</a> --}}
+        </div>
+   
+    
+
+        
+
+    </div> 
+    {{/each}}
+    <br>
+        <div class="column-two">
+        
+        {{!-- <div class="booking-box">
+            <img src="https://i.postimg.cc/gJpsHR84/slawek-fedorczuk-slawek-fedorczuk-2016-11-11-1.jpg" alt="">
+            <h3>Four Seasons</h3>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+            <input class="button" type="button" value="Book">
+        </div> --}}
+
+        
+    </div>
+
+    </main>
+
+    <aside class="aside-content">
+          
+        <div class="aside-title">
+         <h3>Notes</h3>
+         <a href="#">View all</a>
+        </div>
+        {{#each post}}
+         <div class="aside-booking-box">
+                <div class="photo">
+                    <embed  src="/images/post/{{this.img}}" >
+                   
+                </div>
+                <div class="info">
+                    <h4 style="color: blue;"> {{this.dis}}</h4>
+                    <p>{{this.mail}}</p>
+                </div>
+         </div>
+        {{/each}}
+
+    </aside>
+</div>
+ <h1>ONLINE</h1>
+
+  <main class="main-content">
+     
+            {{#each online}}
+     <div class="column-two">
+
+        <div class="booking-box">
+            <img src="/images/profile/{{this.img}}">
+            <div style="display: flex;" >
+ <h3>{{this.name}}</h3> <img style="height: 20px;width:20px;margin-top:5px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPC6P2y0MUjI0NHUl_7o-YE1NgRmdX6olejw&usqp=CAU" alt="">
+            </div>
+           
+            <p>{{this.email}}</p>
+          
+<a href="/" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">message</a>
+        </div>
+   
+    
+
+        
+
+    </div> 
+    {{/each}}
+    <br>
+        <div class="column-two">
+        
+        {{!-- <div class="booking-box">
+            <img src="https://i.postimg.cc/gJpsHR84/slawek-fedorczuk-slawek-fedorczuk-2016-11-11-1.jpg" alt="">
+            <h3>Four Seasons</h3>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+            <input class="button" type="button" value="Book">
+        </div> --}}
+
+        
+    </div>
+
+    </main>
+{{!-- message --}}
+
+
+
+<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabe2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form action="/msg" method="post" enctype="multipart/form-data">
+          <input type="file" name="img">
+          <input type="text" name="mail" placeholder="to">
+          <input type="text" name="msg" placeholder="msg">
+          <input type="submit" value="Sent">
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
