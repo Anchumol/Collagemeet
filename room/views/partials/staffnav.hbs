@@ -12,18 +12,18 @@
           <a href="/home"><h1>{{user.name}}</h1></a>
         
        
-            <img class="profile" src="/images/profile/{{user.img}}" alt="https://image.shutterstock.com/image-vector/user-group-icon-setsymbol-vectorcan-260nw-1924898423.jpg">
+            <img class="profile" src="/images/profile/{{user.img}}">
         </div>
-       <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+       {{!-- <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Add profile pic
-</button>
-<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+</button> --}}
+<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
             Add Note
 </button>
 {{!-- <a href="/message" class="btn btn-dark">message</a> --}}
-<a href="http://localhost:5000/"  target="blank" class="btn btn-outline-info">Meet</a>
+<a href="http://localhost:5000/"  target="blank" class="btn btn-outline-warning">Create Class Room</a>
 {{!-- <a href="/notification" class="btn btn-dark">notification</a> --}}
-<a href="/logout"  class="btn btn-outline-info">LogOut</a>
+<a href="/logout"  class="btn btn-outline-danger">LogOut</a>
     </header>
 
 
@@ -35,15 +35,15 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-          <form action="/addimg" method="post" enctype="multipart/form-data">
+          <form action="/users/addimg" method="post" enctype="multipart/form-data">
           <input type="file" name="img" >
           <input type="hidden" name="userID" value="{{user.id }}">
           <input type="submit" value="Update">
           </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+        <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-outline-warning">Understood</button>
       </div>
     </div>
   </div>
@@ -64,7 +64,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-          <form action="/addpost" method="post" enctype="multipart/form-data">
+          <form action="/users/addpost" method="post" enctype="multipart/form-data">
           <input type="file" name="img">
           <input type="hidden" name="userID" value="{{user.id }}">
           <label for="">discription</label>
@@ -73,7 +73,7 @@
           </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Understood</button>
       </div>
     </div>

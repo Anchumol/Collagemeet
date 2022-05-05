@@ -11,6 +11,7 @@
 </head>
 <body>
     <h2>SignUP/Login</h2>
+	<a href="/users/" class="btn btn-outline-warning">STAFF LOGIN</a>
 	{{#if msg}}
 	    <h2>Email or Rgnumber or Username is duplicated</h2>
 	{{/if}}
@@ -23,7 +24,13 @@
 			<input type="text" name="name" placeholder="Name" />
 			<input type="email" name="email" placeholder="Email" />
 			<input type="text" name="mobile" placeholder="mobile" />
-			<input type="text" name="batch" placeholder="batch" />
+			{{!-- <input type="text" name="batch" placeholder="batch" /> --}}
+			<select name="batch" id="">
+       			<option value="CS">Computer</option>
+       				 <option value="Bcom">Bcom</option>
+        			 <option value="BSC">BSC</option>
+        			 <option value="BCA">BCA</option>
+    			 </select>
 			<input type="number" name="year" placeholder="year" />
 			<input type="text" name="month" placeholder="dob month" />
 			<input type="number" name="date" placeholder="date" />
