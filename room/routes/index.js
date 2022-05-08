@@ -325,4 +325,26 @@ router.post('/forgotPassword',(req,res)=>{
   var data = req.body.email;
   
 })
+router.get('/updateForm',(req,res)=>{
+  var user = req.session.user;
+  res.render('user/editProfile',{data:user})
+})
+router.post('/update',(req,res)=>{
+  var id = req.session.user.id;
+  var data = req.session.user;
+  var name = req.body.name;
+  var email = req.body.email;
+  var mobile = req.body.mobile
+  console.log("db updating....................")
+  let sql = `update user set name = ?,email = ?,mobile = ? where id =${id}`
+  console.log(sql)
+  var user = req.session.user;
+  con.query(sql,[name,email,mobile],(err,upadateInfo)=>{
+    if(err){
+      console.log(err)
+    }else{
+      res.redirect('/home')
+    }
+  })
+})
 module.exports = router;

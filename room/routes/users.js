@@ -136,4 +136,26 @@ router.get('/message',(req,res)=>{
     }
   })
 })
+router.get('/updateForm',(req,res)=>{
+  var user = req.session.user;
+  console.log(user,"session for udpading")
+  res.render('staff/editProfile',{data:user})
+})
+router.post('/update',(req,res)=>{
+  var id = req.session.user.id;
+  var data = req.session.user;
+  var name = req.body.name;
+  var email = req.body.email;
+  var batch = req.body.batch;
+  let sql = `update staff set Name = ?,email = ? where id =${id}`
+  console.log(sql)
+  var user = req.session.user;
+  con.query(sql,[name,email,batch],(err,upadateInfo)=>{
+    if(err){
+      console.log(err)
+    }else{
+      res.redirect('/users/home')
+    }
+  })
+})
 module.exports = router;
