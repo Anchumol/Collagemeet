@@ -64,6 +64,7 @@ router.post('/login',(req,res)=>{
        res.redirect('/users/home')
       }else{
         console.log("not exist")
+        res.render('staff/staffLog',{data:true})
       }
     }
   })

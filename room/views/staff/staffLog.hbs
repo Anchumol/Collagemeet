@@ -112,9 +112,12 @@ body {
 </style>
 <div class="login">
   <div class="login-triangle"></div>
-  
-  <h2 class="login-header">Staff Log in</h2>
-
+  {{#if data}}
+      <h2 class="login-header" style="color:red;"> Login Error</h2>
+  {{else}}
+      <h2 class="login-header">Staff Log in</h2>
+  {{/if}}
+   
   <form class="login-container" action="/users/login" method="post">
     <input type="email" name="email" placeholder="Email">
     <input type="password" name="passwors" placeholder="Password">
